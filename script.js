@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { threshold: 0.1 }
   );
 
-  document.querySelectorAll('.card, .case-card, .rule, .smc-item').forEach((el) => {
+  document.querySelectorAll('.card, .case-card, .rule, .smc-item, .condition-card').forEach((el) => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -27,5 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollY > 50
         ? 'rgba(10, 14, 23, 0.95)'
         : 'rgba(10, 14, 23, 0.85)';
+  });
+
+  document.querySelectorAll('.case-chart img').forEach((img) => {
+    img.addEventListener('click', () => {
+      if (img.requestFullscreen) img.requestFullscreen();
+    });
   });
 });
