@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>突破交易 | Breakout Trading</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">📈</span>
+      <span>突破交易</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#intro">概念</a></li>
+      <li><a href="#smc">SMC 結構</a></li>
+      <li><a href="#fib">斐波那契</a></li>
+      <li><a href="#cases">實戰案例</a></li>
+      <li><a href="#rules">交易紀律</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Breakout Trading · 突破交易</p>
+      <h1>當價格突破結構<br /><span class="gradient-text">趨勢就此展開</span></h1>
+      <p class="hero-desc">
+        突破交易是一種追隨市場動能的策略——當價格有效突破前高、前低或關鍵阻力支撐區時進場，
+        搭配 Smart Money Concepts（SMC）與斐波那契工具，識別高勝率的趨勢延續機會。
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">BOS</span>
+          <span class="stat-label">結構突破</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">CHoCH</span>
+          <span class="stat-label">趨勢轉變</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">0.618</span>
+          <span class="stat-label">黃金回撤</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">12</span>
+          <span class="stat-label">經典案例</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="intro" class="section">
+    <div class="container">
+      <h2 class="section-title">什麼是突破交易？</h2>
+      <p class="section-lead">
+        突破交易的核心在於識別價格從盤整區間或關鍵結構位「突破」的時刻，並在確認後順勢進場。
+      </p>
+      <div class="card-grid three">
+        <article class="card">
+          <div class="card-icon">🔺</div>
+          <h3>阻力突破</h3>
+          <p>價格收盤站上前期高點或水平阻力線，伴隨成交量放大，確認多頭突破。</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">🔻</div>
+          <h3>支撐跌破</h3>
+          <p>價格有效跌破前期低點或上升趨勢線，形成空頭突破，順勢做空。</p>
+        </article>
+        <article class="card">
+          <div class="card-icon">📊</div>
+          <h3>盤整突破</h3>
+          <p>長期橫盤整理後的首次放量突破（如 Sony 1999 年案例），往往開啟大級別趨勢。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="smc" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">Smart Money Concepts（SMC）</h2>
+      <p class="section-lead">LuxAlgo SMC 指標標記的市場結構，是突破交易最重要的判斷框架。</p>
+      <div class="smc-grid">
+        <div class="smc-item bos">
+          <span class="smc-badge">BOS</span>
+          <h3>Break of Structure<br />結構突破</h3>
+          <p>上升趨勢中，價格突破前一個波段高點，確認趨勢延續。每個 BOS 都是潛在的加倉或進場信號。</p>
+        </div>
+        <div class="smc-item choch">
+          <span class="smc-badge">CHoCH</span>
+          <h3>Change of Character<br />性格轉變</h3>
+          <p>價格首次跌破前一個波段低點（或突破前低），暗示趨勢可能反轉，應減倉或平倉。</p>
+        </div>
+        <div class="smc-item eq">
+          <span class="smc-badge">EQH / EQL</span>
+          <h3>Equal Highs / Lows<br />等高低點</h3>
+          <p>流動性聚集區域，價格常在這些位置掃蕩後才發動真正的突破。</p>
+        </div>
+        <div class="smc-item zone">
+          <span class="smc-badge">Supply / Demand</span>
+          <h3>供需區域</h3>
+          <p>Strong High（強阻力）與 Weak Low（弱支撐）標記關鍵突破目標與止損位置。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fib" class="section">
+    <div class="container">
+      <h2 class="section-title">斐波那契回撤與延伸</h2>
+      <p class="section-lead">突破後的回調買點，常用斐波那契水平作為進場參考。</p>
+      <div class="fib-visual">
+        <div class="fib-bar" style="--color:#ef4444"><span>0</span><span>峰值</span></div>
+        <div class="fib-bar" style="--color:#f97316"><span>0.236</span><span>淺回撤</span></div>
+        <div class="fib-bar" style="--color:#eab308"><span>0.382</span><span>常見支撐</span></div>
+        <div class="fib-bar" style="--color:#22c55e"><span>0.5</span><span>中位回撤</span></div>
+        <div class="fib-bar highlight" style="--color:#14b8a6"><span>0.618</span><span>黃金比例 ★</span></div>
+        <div class="fib-bar" style="--color:#3b82f6"><span>0.786</span><span>深度回撤</span></div>
+        <div class="fib-bar" style="--color:#8b5cf6"><span>1.0</span><span>起漲點</span></div>
+      </div>
+      <p class="fib-note">
+        延伸目標：1.618、2.618、3.618 — 用於設定突破後的獲利目標（如 MSFT、HSBC 長線走勢）。
+      </p>
+    </div>
+  </section>
+
+  <section id="cases" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">經典突破案例</h2>
+      <p class="section-lead">以下 12 個真實圖表案例，展示不同市場、不同時代的突破交易模式。</p>
+
+      <div class="cases-grid">
+        <article class="case-card" data-exchange="HKEX">
+          <div class="case-header">
+            <h3>中國宏橋集團</h3>
+            <span class="ticker">1378.HK</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/1378-hk.png" alt="中國宏橋 1378 突破圖表" loading="lazy" />
+          </div>
+          <p>2024 年強勢多頭，從 6 港元突破至 24 港元，連續 BOS 確認上升結構。斐波那契 0.618（16.96）為關鍵回撤支撐。</p>
+          <div class="case-tags"><span>BOS</span><span>多頭趨勢</span><span>斐波回撤</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="NASDAQ">
+          <div class="case-header">
+            <h3>Microsoft</h3>
+            <span class="ticker">MSFT</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/msft.png" alt="Microsoft MSFT 突破圖表" loading="lazy" />
+          </div>
+          <p>2016–2024 長線牛市典範。2020 年 3 月低點（134.23）為斐波那契起點，延伸目標 1.618–3.618 指引長期漲幅。</p>
+          <div class="case-tags"><span>長線突破</span><span>斐波延伸</span><span>CHoCH 2022</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="HKEX">
+          <div class="case-header">
+            <h3>中國移動</h3>
+            <span class="ticker">0941.HK</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/0941-hk.png" alt="中國移動 0941 突破圖表" loading="lazy" />
+          </div>
+          <p>2003–2007 多年上升趨勢，密集 BOS 標記每個結構高點被突破的時刻，展現趨勢追蹤的經典玩法。</p>
+          <div class="case-tags"><span>趨勢追蹤</span><span>多年牛市</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="TSE">
+          <div class="case-header">
+            <h3>日本精機</h3>
+            <span class="ticker">7287.T</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/7287-t.png" alt="日本精機 7287 突破圖表" loading="lazy" />
+          </div>
+          <p>2005 年從 1,200 日元急漲至 2,400，突破 0 斐波水平（1,758）後加速，EQH 標記流動性掃蕩。</p>
+          <div class="case-tags"><span>加速突破</span><span>EQH</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="NYSE">
+          <div class="case-header">
+            <h3>3D Systems</h3>
+            <span class="ticker">DDD</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/ddd.png" alt="3D Systems DDD 突破圖表" loading="lazy" />
+          </div>
+          <p>2013 年從 28 美元飆升至 97 美元，展示突破的雙面性——暴漲後 CHoCH 預警趨勢反轉，回撤至 0.786（40.20）。</p>
+          <div class="case-tags"><span>暴漲突破</span><span>反轉警示</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="NYSE">
+          <div class="case-header">
+            <h3>Sony</h3>
+            <span class="ticker">SONY</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/sony.png" alt="Sony SONY 突破圖表" loading="lazy" />
+          </div>
+          <p>1999 年 3 月從長期盤整區突破，成交量暴增確認信號。教科書級別的「盤整突破」案例。</p>
+          <div class="case-tags"><span>盤整突破</span><span>放量確認</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="NYSE">
+          <div class="case-header">
+            <h3>Motorola Solutions</h3>
+            <span class="ticker">MSI</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/msi.png" alt="Motorola Solutions MSI 突破圖表" loading="lazy" />
+          </div>
+          <p>2020–2022 穩健上升，斐波那契 0.618（207.81）為趨勢中最重要的回撤買點。</p>
+          <div class="case-tags"><span>穩健趨勢</span><span>0.618 支撐</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="HKEX">
+          <div class="case-header">
+            <h3>滙豐控股</h3>
+            <span class="ticker">0005.HK</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/0005-hk.png" alt="滙豐控股 HSBC 突破圖表" loading="lazy" />
+          </div>
+          <p>2020 年 9 月低點（27.92）啟動長線復甦，Strong Low 與 Weak High 標記供需區，延伸目標清晰。</p>
+          <div class="case-tags"><span>復甦突破</span><span>供需區</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="TSE">
+          <div class="case-header">
+            <h3>丸井集團</h3>
+            <span class="ticker">8252.T</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/8252-t.png" alt="丸井集團 8252 突破圖表" loading="lazy" />
+          </div>
+          <p>Strong High（3,100）形成主要阻力，突破失敗後回落至 Weak Low 區域，展示假突破風險。</p>
+          <div class="case-tags"><span>假突破</span><span>Strong High</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="HKEX">
+          <div class="case-header">
+            <h3>大快活集團</h3>
+            <span class="ticker">0052.HK</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/0052-hk.png" alt="大快活 0052 突破圖表" loading="lazy" />
+          </div>
+          <p>2015 年抛物線式突破，從 15 港元飆升至 28 港元，2017 年 CHoCH 標記趨勢終結與急跌。</p>
+          <div class="case-tags"><span>拋物線</span><span>趨勢終結</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="HKEX">
+          <div class="case-header">
+            <h3>香港中華煤氣</h3>
+            <span class="ticker">0003.HK</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/0003-hk.png" alt="中華煤氣 0003 突破圖表" loading="lazy" />
+          </div>
+          <p>2017–2019 穩定 BOS 上升，2020 年 CHoCH 確認熊市結構，斐波 0.618（10.67）為關鍵支撐。</p>
+          <div class="case-tags"><span>結構上升</span><span>熊市轉換</span></div>
+        </article>
+
+        <article class="case-card" data-exchange="NYSE">
+          <div class="case-header">
+            <h3>Boeing</h3>
+            <span class="ticker">BA</span>
+          </div>
+          <div class="case-chart">
+            <img src="images/ba.png" alt="Boeing BA 突破圖表" loading="lazy" />
+          </div>
+          <p>2016–2018 從 130 美元漲至 360 美元，EQL 雙底後突破，連續 BOS 確認超級牛市結構。</p>
+          <div class="case-tags"><span>雙底突破</span><span>EQL</span><span>超級牛市</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="rules" class="section">
+    <div class="container">
+      <h2 class="section-title">突破交易紀律</h2>
+      <div class="rules-grid">
+        <div class="rule">
+          <span class="rule-num">01</span>
+          <h3>等待確認</h3>
+          <p>突破必須以<strong>收盤價</strong>確認，並搭配成交量放大，避免假突破陷阱。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">02</span>
+          <h3>結構止損</h3>
+          <p>止損設在突破 K 線低點或前一個波段低點下方，而非固定百分比。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">03</span>
+          <h3>斐波目標</h3>
+          <p>第一目標設在 1.0 延伸，第二目標 1.618，第三目標 2.618，分批獲利了結。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">04</span>
+          <h3>順勢而為</h3>
+          <p>只在 BOS 方向交易，CHoCH 出現時減倉或觀望，不逆勢抄底摸頂。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">05</span>
+          <h3>回撤進場</h3>
+          <p>突破後等待回撤至 0.382–0.618 斐波區間再進場，風險報酬比更優。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">06</span>
+          <h3>風險控制</h3>
+          <p>單筆風險不超過帳戶 1–2%，連續虧損後暫停交易，嚴守紀律。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Homework Project · 突破交易 Breakout Trading</p>
+      <p class="footer-sub">圖表來源：TradingView · LuxAlgo Smart Money Concepts</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
