@@ -3,12 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="0; url=突破交易/" />
-  <link rel="canonical" href="突破交易/" />
-  <title>突破交易 | Breakout Trading</title>
-  <script>location.replace('突破交易/');</script>
+  <title>Homework · 交易策略筆記</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    .index-hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 32px 80px; position: relative; overflow: hidden; }
+    .index-hero .hero-bg { position: absolute; inset: 0; }
+    .index-content { position: relative; max-width: 900px; width: 100%; text-align: center; }
+    .index-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; text-align: left; }
+    .index-card { display: block; text-decoration: none; color: inherit; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
+    .index-card:hover { transform: translateY(-6px); border-color: rgba(34, 211, 238, 0.4); box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4); }
+    .index-card-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .index-card h2 { font-size: 1.3rem; margin-bottom: 10px; }
+    .index-card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px; }
+    .index-card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .index-card-tags span { font-size: 0.72rem; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); color: var(--text-muted); font-family: var(--mono); }
+    .index-card-arrow { margin-top: 20px; color: var(--accent); font-family: var(--mono); font-size: 0.85rem; }
+  </style>
 </head>
 <body>
-  <p>正在前往 <a href="突破交易/">突破交易</a>…</p>
+  <header class="index-hero">
+    <div class="hero-bg"></div>
+    <div class="index-content">
+      <p class="hero-tag">Trading Notes · 交易策略筆記</p>
+      <h1 style="font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.2;margin-bottom:16px;">
+        Homework<br /><span class="gradient-text">交易筆記集</span>
+      </h1>
+      <p class="hero-desc" style="margin:0 auto;">
+        技術分析策略筆記與實戰圖表案例，持續更新中。
+      </p>
+
+      <div class="index-grid">
+        <a class="index-card" href="突破交易/">
+          <div class="index-card-icon">📈</div>
+          <h2>突破交易</h2>
+          <p>歷史高位、0.236 以上、成交下跌、收窄三角形——四大條件同時成立時的突破進場策略。</p>
+          <div class="index-card-tags">
+            <span>BOS</span><span>SMC</span><span>斐波那契</span><span>12 案例</span>
+          </div>
+          <div class="index-card-arrow">進入筆記 →</div>
+        </a>
+
+        <a class="index-card" href="0.786回調/">
+          <div class="index-card-icon">📐</div>
+          <h2>0.786 回調</h2>
+          <p>跌浪 5 浪中，於第 1 浪底部的 Fibonacci 0.786 極深回調位買入——最後洗盤位，止跌後升幅顯著。</p>
+          <div class="index-card-tags">
+            <span>0.786</span><span>5浪</span><span>洗盤位</span><span>10 案例</span>
+          </div>
+          <div class="index-card-arrow">進入筆記 →</div>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Homework · zero850x-ctrl</p>
+      <p class="footer-sub">圖表來源：TradingView</p>
+    </div>
+  </footer>
 </body>
 </html>
