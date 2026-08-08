@@ -205,6 +205,42 @@ body {
   margin: 0 auto 16px;
 }
 
+.advanced-block {
+  scroll-margin-top: 80px;
+}
+
+.advanced-divider {
+  margin-top: 80px;
+  padding-top: 64px;
+  border-top: 1px solid var(--border);
+}
+
+.subsection-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.conditions-formula .fail-result {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.3);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.case-card.fail {
+  border-color: rgba(248, 113, 113, 0.25);
+}
+
+.case-card.fail .ticker {
+  background: rgba(248, 113, 113, 0.12);
+  color: #f87171;
+}
+
+.case-card.fail:hover {
+  box-shadow: 0 12px 40px rgba(248, 113, 113, 0.12);
+}
+
 /* Conditions */
 .conditions-grid {
   display: grid;
