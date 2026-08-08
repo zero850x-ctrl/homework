@@ -199,6 +199,12 @@ body {
   font-size: 1.05rem;
 }
 
+.section .hero-tag {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 16px;
+}
+
 /* Conditions */
 .conditions-grid {
   display: grid;
