@@ -519,6 +519,53 @@
     </div>
   </section>
 
+  <section id="tool" class="section">
+    <div class="container">
+      <h2 class="section-title">自動化掃描工具</h2>
+      <p class="section-lead">
+        將上述突破四大條件（歷史高位、重覆觸碰、收窄、成交萎縮）編碼成自動化掃描器，一鍵找出港美股中正在「準備突破」的候選股。
+      </p>
+
+      <div class="card-grid three">
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h3>992 式形態定義</h3>
+          <p>貼近<b>真實歷史高位</b>（非 52 週高位）、重覆觸碰阻力區（2+ 次）、低點逐步上移、波幅收窄（comp &lt; 0.85）、成交收縮（vol &lt; 0.9）。六項條件計分，≥4 分列為候選。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📡</div>
+          <h3>雙層資料源</h3>
+          <p>TradingView scanner API 先篩選貼近 52 週高位的大市值股票，再以 yfinance 全歷史日線（period='max'）計算真實 ATH 距離與壓縮分數，避免 90 日高位誤判。</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>Hermes Skill</h3>
+          <p>已封裝為 <b>breakout-compression-scan</b> skill，含完整掃描程式 <code>scan_compression.py</code>，支援港（hk）美（us）兩個市場，自動排除 OTC 外國上市名單。</p>
+        </div>
+      </div>
+
+      <div class="tool-code">
+        <pre><code># 安裝依賴
+pip install yfinance requests numpy
+
+# 掃描美股（NASDAQ / NYSE，排除 OTC）
+python3 ~/.hermes/skills/trading/breakout-compression-scan/scripts/scan_compression.py us
+
+# 掃描港股
+python3 ~/.hermes/skills/trading/breakout-compression-scan/scripts/scan_compression.py hk</code></pre>
+      </div>
+
+      <div class="tool-links">
+        📂 Skill 位置：<code>~/.hermes/skills/trading/breakout-compression-scan/</code>（
+        <a href="https://github.com/zero850x-ctrl/homework/tree/master/突破交易" target="_blank" rel="noopener">對應本頁四大條件</a>）
+      </div>
+
+      <p class="tool-note">
+        ⚠️ 掃描結果屬技術篩選，並非買入訊號。突破需以<b>放量 + 收盤價站穩 ATH</b> 確認；港美股數據以交易日收市為準，開市前請重新確認。
+      </p>
+    </div>
+  </section>
+
   <footer class="footer">
     <div class="container">
       <p>Homework Project · 突破交易 Breakout Trading</p>

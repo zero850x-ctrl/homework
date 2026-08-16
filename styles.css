@@ -608,6 +608,51 @@ body {
   opacity: 0.6;
 }
 
+/* Tool / Automation */
+.tool-code {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-top: 24px;
+  overflow-x: auto;
+}
+
+.tool-code pre {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.tool-code code {
+  font-family: 'JetBrains Mono', monospace;
+  white-space: pre;
+}
+
+.tool-links {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.tool-links a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(34, 211, 238, 0.4);
+}
+
+.tool-links a:hover {
+  border-bottom-color: var(--accent);
+}
+
+.tool-note {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .navbar { padding: 14px 20px; }
