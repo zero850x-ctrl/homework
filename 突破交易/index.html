@@ -538,9 +538,9 @@
           <p>TradingView scanner API 先篩選貼近 52 週高位的大市值股票，再以 yfinance 全歷史日線（period='max'）計算真實 ATH 距離與壓縮分數，避免 90 日高位誤判。</p>
         </div>
         <div class="card">
-          <div class="card-icon">🤖</div>
-          <h3>Hermes Skill</h3>
-          <p>已封裝為 <b>breakout-compression-scan</b> skill，含完整掃描程式 <code>scan_compression.py</code>，支援港（hk）美（us）兩個市場，自動排除 OTC 外國上市名單。</p>
+          <div class="card-icon">🐍</div>
+          <h3>獨立 Python 程式</h3>
+          <p>掃描程式 <b>scan_compression.py</b> 已收錄於本 repo（<code>突破交易/scripts/</code>），純 Python + 免費 API，<b>唔需要任何特殊平台</b> — 裝好依賴直接執行即可，支援港（hk）美（us）兩個市場，自動排除 OTC 外國上市名單。</p>
         </div>
       </div>
 
@@ -558,6 +558,10 @@ python3 "突破交易/scripts/scan_compression.py" hk</code></pre>
       <div class="tool-links">
         📂 掃描程式：<a href="https://github.com/zero850x-ctrl/homework/blob/master/突破交易/scripts/scan_compression.py" target="_blank" rel="noopener">scan_compression.py</a>（<a href="https://raw.githubusercontent.com/zero850x-ctrl/homework/master/突破交易/scripts/scan_compression.py" target="_blank" rel="noopener">下載原始檔</a>）
       </div>
+
+      <p class="tool-note">
+        🚀 使用步驟：<code>git clone https://github.com/zero850x-ctrl/homework.git</code> → 在 repo 根目錄執行 <code>pip install yfinance requests numpy tvdatafeed</code> → 再執行上方掃描指令。輸出會列出「準備突破」候選，並標明數據缺口（如有）。
+      </p>
 
       <p class="tool-note">
         📡 港股數據源：<b>tvdatafeed</b>（TradingView 直連）優先，因 Yahoo Finance 對部分藍籌（941 中移動、823 領展、178 莎莎）無歷史數據；若 tvdatafeed 未安裝，程式會自動退回 yfinance 並在結尾列出被跳過的股票。
