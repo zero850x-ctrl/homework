@@ -546,12 +546,12 @@
 
       <div class="tool-code">
         <pre><code># 安裝依賴
-pip install yfinance requests numpy
+pip install yfinance requests numpy tvdatafeed
 
 # 掃描美股（NASDAQ / NYSE，排除 OTC）
 python3 ~/.hermes/skills/trading/breakout-compression-scan/scripts/scan_compression.py us
 
-# 掃描港股
+# 掃描港股（tvdatafeed 直連，涵蓋中移動/領展等 yfinance 缺數據的股票）
 python3 ~/.hermes/skills/trading/breakout-compression-scan/scripts/scan_compression.py hk</code></pre>
       </div>
 
@@ -559,6 +559,10 @@ python3 ~/.hermes/skills/trading/breakout-compression-scan/scripts/scan_compress
         📂 Skill 位置：<code>~/.hermes/skills/trading/breakout-compression-scan/</code>（
         <a href="https://github.com/zero850x-ctrl/homework/tree/master/突破交易" target="_blank" rel="noopener">對應本頁四大條件</a>）
       </div>
+
+      <p class="tool-note">
+        📡 港股數據源：<b>tvdatafeed</b>（TradingView 直連）優先，因 Yahoo Finance 對部分藍籌（941 中移動、823 領展、178 莎莎）無歷史數據；若 tvdatafeed 未安裝，程式會自動退回 yfinance 並在結尾列出被跳過的股票。
+      </p>
 
       <p class="tool-note">
         ⚠️ 掃描結果屬技術篩選，並非買入訊號。突破需以<b>放量 + 收盤價站穩 ATH</b> 確認；港美股數據以交易日收市為準，開市前請重新確認。
