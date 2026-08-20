@@ -20,6 +20,7 @@
       <li><a href="#notes">筆記原圖</a></li>
       <li><a href="#entry">進出場規則</a></li>
       <li><a href="#attention">注意重點</a></li>
+      <li><a href="#three-pushes">Three Pushes</a></li>
       <li><a href="#case">MRNA 案例</a></li>
       <li><a href="#scan">美股掃描</a></li>
       <li><a href="#summary">總結</a></li>
@@ -163,6 +164,48 @@
     </div>
   </section>
 
+  <section id="three-pushes" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">反面教材：Three Pushes Pattern（三推衰竭）</h2>
+      <p class="section-lead">「事不過三」——趨勢末端連續三次推進失敗，即將強烈反轉。同順勢交易結構相似，必須分辨清楚。</p>
+
+      <div class="cases-grid">
+        <article class="case-card">
+          <div class="case-header">
+            <h3>Three Pushes Pattern</h3>
+            <span class="ticker">三推衰竭 · 反轉信號</span>
+          </div>
+          <div class="case-chart">
+            <img src="../images/three-pushes-pattern.jpg" alt="Three Pushes Pattern 三推衰竭示意圖" loading="lazy" />
+          </div>
+          <p><strong>看跌版本（左）</strong>：長期上升趨勢末端 → 三次推升逐次乏力（Higher Highs，第三次勉強新高）→ <strong>Strong Selloff</strong>。<strong>看漲版本（右）</strong>：長期下跌趨勢末端 → 三次推跌逐次乏力（Lower Lows）→ <strong>Strong Rally</strong>。</p>
+          <div class="case-tags"><span>事不過三</span><span>趨勢末端</span><span>強烈反轉</span></div>
+        </article>
+      </div>
+
+      <div class="conditions-grid" style="margin-top:32px;">
+        <article class="condition-card">
+          <div class="condition-num">🔺</div>
+          <h3>順勢交易 vs Three Pushes</h3>
+          <p><strong>順勢</strong>：突破前頂係<strong>一次過</strong>放量突破，回測淺（急速返回前頂之上），結構健康。<strong>Three Pushes</strong>：三次推升<strong>逐次乏力</strong>，第三次勉強新高後急跌 — 呢個係力竭，唔係回測。</p>
+          <div class="condition-check">✓ 分辨關鍵：突破次數 + 回落幅度</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">🖥</div>
+          <h3>CRWD 實例（2026-08）</h3>
+          <p><strong>3 頂依次升</strong>：$209.5 → $217.5 → $226.9（第三次勉強 +4%），然後急跌 <strong>-11%</strong> 至 $201.6。呢個唔係「回測前頂」，係<strong>三次推升失敗 → 準備 selloff</strong>。</p>
+          <div class="condition-check">⚠ 3 頂依次升 + 回落 &gt;3% → three pushes → 勿當順勢</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">📡</div>
+          <h3>掃描器自動排除</h3>
+          <p>掃描 script 已加入 <strong>three pushes 過濾</strong>：最近 3 個 swing high 依次升高（&gt;2%、&gt;1%）且現價距第 3 頂回落 &gt;3%，直接標記排除，唔會再誤報為順勢候選。</p>
+          <div class="condition-check">✓ scan_trend_continuation.py 已更新</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section id="case" class="section section-dark">
     <div class="container">
       <h2 class="section-title">實戰案例：MRNA（Moderna）</h2>
@@ -222,29 +265,27 @@
       <div class="cases-grid">
         <article class="case-card">
           <div class="case-header">
-            <h3>Cloudflare</h3>
+            <h3>NET 誤判案例</h3>
             <span class="ticker">NET · 1D · 2026-06 → 08</span>
           </div>
           <div class="case-chart">
-            <img src="../images/net-trend-continuation.png" alt="NET 順勢交易候選圖表" loading="lazy" />
+            <img src="../images/net-trend-continuation.png" alt="NET 誤判案例圖表" loading="lazy" />
           </div>
-          <p><strong>結構</strong>：上升趨勢 → 8/7 突破前頂 $291 至 $324.73 → 急速回測 $285.72（8/19）→ 正於前頂 $291 附近測試支持。<strong>買入區</strong>：$291 之上（急速返回），<strong>止損</strong>：$265（假突破底部），<strong>目標</strong>：$331（1.618 延伸）。</p>
-          <div class="case-tags"><span>突破回測中</span><span>前頂 $291</span><span>SL $265</span><span>目標 $331</span></div>
+          <p><strong>表面睇</strong>：突破 $291 → 回測 $285.72 → 似順勢回測。<strong>實際</strong>：3 頂依次升 $291 → $324.7 → $332.2（第三次勉強 +2.3%），然後急跌 <strong>-12%</strong> — 係 <strong>three pushes 力竭</strong>，唔係健康回測。買入 $291 嘅話，而家已經蝕緊。</p>
+          <div class="case-tags"><span>⚠ 誤判案例</span><span>3頂依次升</span><span>力竭反轉</span></div>
         </article>
       </div>
 
-      <h2 class="subsection-title">2026-08-20 掃描結果（10 隻候選）</h2>
-      <div class="tool-code"><pre>ticker  現價        前頂        回測低點    距前頂    突破     前頂喺
-CRWD    $201.63    $217.50    $177.75    -7.3%    +5%     25日前
-AMZN    $265.84    $278.56    $231.06    -4.6%    +3%     73日前
-PANW    $359.76    $368.80    $313.05    -2.5%    +8%     23日前
-MSFT    $484.31    $491.31    $432.44    -1.4%    +5%     178日前
-NET     $291.88    $291.00    $265.00    +0.3%    +14%    25日前
-BAC     $63.17     $62.99     $61.03     +0.3%    +4%     17日前
-LLY     $1280.34   $1247.66   $1107.56   +2.6%    +4%     31日前
-REGN    $840.84    $817.95    $694.17    +2.8%    +3%     152日前
-AMGN    $442.36    $398.00    $375.96    +11.1%   +11%    16日前
-SNOW    $325.01    $284.99    $283.00    +14.0%   +20%    55日前</pre></div>
+      <h2 class="subsection-title">2026-08-20 掃描結果（0 真候選，5 隻 three pushes 排除）</h2>
+      <div class="tool-code"><pre>⚠️ THREE PUSHES 排除（力竭反轉，勿當順勢）:
+AMZN   3頂依次升 249.7→258.1→287.2，現價距第3頂 -7.4%
+MSFT   3頂依次升 395.6→406.0→513.7，現價距第3頂 -5.7%
+DDOG   3頂依次升 271.3→276.7→292.7，現價距第3頂 -20.2%
+NET    3頂依次升 291.0→324.7→332.2，現價距第3頂 -12.1%
+CRWD   3頂依次升 209.5→217.5→226.9，現價距第3頂 -11.1%
+
+（今次掃描冇發現符合條件嘅真順勢候選）
+掃描 70 隻，無信號 65 隻，three pushes 排除 5 隻</pre></div>
 
       <div class="tool-links">
         📂 掃描程式：<a href="https://github.com/zero850x-ctrl/homework/blob/master/順勢交易/scripts/scan_trend_continuation.py" target="_blank" rel="noopener">scan_trend_continuation.py</a>（<a href="https://raw.githubusercontent.com/zero850x-ctrl/homework/master/順勢交易/scripts/scan_trend_continuation.py" target="_blank" rel="noopener">下載原始檔</a>）
@@ -255,7 +296,7 @@ SNOW    $325.01    $284.99    $283.00    +14.0%   +20%    55日前</pre></div>
       </p>
 
       <p class="tool-note">
-        📡 掃描條件對應筆記：① 上升結構（低點抬升）② 突破前頂 5-40%（太短/太長都剔除）③ 現價回測至前頂 ±4% ④ 回測低點跌破前頂（假突破底部）但現價已反彈 ⑤ 突破放量（&gt;1.2x 均量）。候選需在 TradingView 人手確認圖表結構先可作實。
+        📡 掃描條件對應筆記：① 上升結構（低點抬升）② 突破前頂 5-40%（太短/太長都剔除）③ 現價回測至前頂 -8% / +15% ④ 回測低點跌破前頂（假突破底部）但現價已反彈 ⑤ 突破放量（&gt;1.2x 均量）⑥ <b>Three Pushes 排除</b>：最近 3 頂依次升（&gt;2% / &gt;1%）且現價距第 3 頂回落 &gt;3% → 力竭反轉，直接剔除。候選需在 TradingView 人手確認圖表結構先可作實。
       </p>
     </div>
   </section>

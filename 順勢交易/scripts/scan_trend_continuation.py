@@ -59,6 +59,24 @@ def scan(ticker):
         vol = df['Volume']
         cur = close.iloc[-1]
 
+        # 0. THREE PUSHES 檢查（最優先！）：最近 3 個 swing high 依次升高
+        #    且現價由第 3 頂回落 >3% → 力竭反轉，直接排除並標記
+        def find_swing_highs_in(df_, window=4):
+            out = []
+            for j in range(window, len(df_)-window):
+                if df_['High'].iloc[j] == df_['High'].iloc[j-window:j+window].max():
+                    out.append((j, df_['High'].iloc[j]))
+            return out
+        sh = find_swing_highs_in(df)
+        sh_recent = [x for x in sh if x[0] < len(df)-3][-3:]
+        if len(sh_recent) == 3:
+            _, h1 = sh_recent[0]; _, h2 = sh_recent[1]; _, h3 = sh_recent[2]
+            if h2 > h1 * 1.02 and h3 > h2 * 1.01:
+                drop = (cur - h3) / h3 * 100
+                if drop < -3:
+                    return {'ticker': ticker, 'skip': 'three_pushes',
+                            'reason': f'3頂依次升 {h1:.1f}→{h2:.1f}→{h3:.1f}，現價距第3頂 {drop:.1f}% ← 力竭反轉'}
+
         # 1. 上升結構：近 60 日低點 > 90 日前低點（低點抬升）
         recent_low = low.iloc[-60:].min()
         prior_low = low.iloc[-120:-60].min()
@@ -80,10 +98,10 @@ def scan(ticker):
         if recent_high > prev_peak * 1.40:
             return None  # 突破太長（趨勢可能終結，筆記注意重點）
 
-        # 4. 回測中：現價回到前頂附近（前頂 ±4%），未跌穿
-        if cur < prev_peak * 0.96:
+        # 4. 回測中：現價回到前頂附近（前頂 -8% 到 +15%），未跌穿
+        if cur < prev_peak * 0.92:
             return None  # 已跌穿前頂（支持失敗）
-        if cur > prev_peak * 1.10:
+        if cur > prev_peak * 1.15:
             return None  # 已離前頂太遠（已爆升，追唔到）
 
         # 5. 回測低點 < 前頂（假突破底部），現價 > 回測低點
@@ -120,11 +138,15 @@ def scan(ticker):
 
 if __name__ == '__main__':
     results = []
+    skipped_tp = []
     failed = []
     for i, tk in enumerate(WATCHLIST):
         r = scan(tk)
         if r:
-            results.append(r)
+            if r.get('skip') == 'three_pushes':
+                skipped_tp.append(r)
+            else:
+                results.append(r)
         else:
             failed.append(tk)
         sys.stdout.write(f'\r掃描中 {i+1}/{len(WATCHLIST)}: {tk}  {"FOUND" if r else "..."}    ')
@@ -135,4 +157,8 @@ if __name__ == '__main__':
         print('（今次掃描冇發現符合條件嘅股票）')
     for r in sorted(results, key=lambda x: x['retrace_pct']):
         print(f"{r['ticker']:6s} 現價 ${r['price']:8.2f} | 前頂 ${r['prev_peak']:8.2f} | 回測低點 ${r['retrace_low']:8.2f} | 現價距前頂 {r['retrace_pct']:+.1f}% | 突破 +{r['breakout_pct']:.0f}% | 量比 {r['vol_ratio']}x | 前頂喺 {r['days_ago']} 日前")
-    print(f'\n掃描 {len(WATCHLIST)} 隻，無信號 {len(failed)} 隻')
+    if skipped_tp:
+        print(f'\n⚠️ THREE PUSHES 排除（力竭反轉，勿當順勢）:')
+        for r in skipped_tp:
+            print(f"  {r['ticker']:6s} {r['reason']}")
+    print(f'\n掃描 {len(WATCHLIST)} 隻，無信號 {len(failed)} 隻，three pushes 排除 {len(skipped_tp)} 隻')
