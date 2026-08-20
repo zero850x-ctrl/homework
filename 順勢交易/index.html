@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>順勢交易 | Trend Continuation Trading</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">🌊</span>
+      <span>順勢交易</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#strategy">策略描述</a></li>
+      <li><a href="#entry">進出場規則</a></li>
+      <li><a href="#attention">注意重點</a></li>
+      <li><a href="#case">MRNA 案例</a></li>
+      <li><a href="#summary">總結</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Trend Continuation Trading · 順勢交易</p>
+      <h1>趨勢未過度延伸時<br /><span class="gradient-text">於前頂之上順勢進場</span></h1>
+      <p class="hero-desc">
+        趨勢延續的核心：找出一支持位（前頂位置），當價格<strong>略為升穿前頂後急速返回前頂之上</strong>時買入。
+        下跌趨勢相反亦然。止損放於假突破底部，止盈看前推進浪頂與回調浪 1.618。
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">◐</span>
+          <span class="stat-label">全部時間間距</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">🛡</span>
+          <span class="stat-label">假突破底部止損</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">①</span>
+          <span class="stat-label">前推進浪頂</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">1.618</span>
+          <span class="stat-label">回調浪延伸</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="strategy" class="section">
+    <div class="container">
+      <h2 class="section-title">策略描述</h2>
+      <p class="section-lead">趨勢延續，於趨勢未出現過度延伸的狀態下，找出一支持位作為進場點。</p>
+
+      <div class="conditions-grid">
+        <article class="condition-card">
+          <div class="condition-num">01</div>
+          <h3>前頂作為支持位</h3>
+          <p>選取的支持位是<strong>前頂位置</strong>（前推進浪頂）。前頂被突破後轉為支持，價格回測該位時提供進場機會。</p>
+          <div class="condition-check">✓ 支持位 = 前頂（前推進浪頂）</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">02</div>
+          <h3>略升穿後急速返回</h3>
+          <p>當價格<strong>略為升穿前頂</strong>後<strong>急速返回前頂之上</strong>時買入——即突破後回測確認（Breakout &amp; Retest）。</p>
+          <div class="condition-check">✓ 升穿前頂 → 急速返回前頂之上 → 買入</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">03</div>
+          <h3>下跌趨勢相反亦然</h3>
+          <p>下跌趨勢中，前底作為阻力位，價格略為跌穿前底後急速返回前底之下時賣出。對稱操作。</p>
+          <div class="condition-check">✓ 跌穿前底 → 急速返回前底之下 → 賣出</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="entry" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">進出場規則</h2>
+      <p class="section-lead">一套完整的順勢交易，包含四個關鍵位置。</p>
+
+      <div class="smc-grid">
+        <div class="smc-item">
+          <span class="smc-badge">📥 入場位置</span>
+          <h3>支持位置之上</h3>
+          <p>價格突破前頂後回測，<strong>返回前頂之上</strong>即為入場點。等待急速返回確認，避免在假突破中進場。</p>
+        </div>
+        <div class="smc-item zone">
+          <span class="smc-badge">🛑 止損位置</span>
+          <h3>假突破底部</h3>
+          <p>止損設於<strong>假突破的底部</strong>（價格回測時短暫跌破支持位所形成的低點下方）。跌破即離場，風險有限。</p>
+        </div>
+        <div class="smc-item">
+          <span class="smc-badge">🎯 止盈 #1</span>
+          <h3>前推進浪頂</h3>
+          <p>第一個獲利目標是<strong>前推進浪頂</strong>（Stop Earn #1）——之前推進浪的高點，突破後成為目標阻力。</p>
+        </div>
+        <div class="smc-item zone">
+          <span class="smc-badge">🚀 止盈 #2</span>
+          <h3>回調浪 1.618</h3>
+          <p>第二個獲利目標是<strong>回調浪的 1.618 延伸</strong>（Stop Earn #2）——斐波那契延伸目標，捕捉趨勢的主升段。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="attention" class="section">
+    <div class="container">
+      <h2 class="section-title">注意重點</h2>
+      <p class="section-lead">第二個推進浪的突破品質，決定這筆交易的成敗。</p>
+
+      <div class="conditions-grid">
+        <article class="condition-card">
+          <div class="condition-num">📏</div>
+          <h3>突破距離不能太短</h3>
+          <p>第二個推進浪需要突破第一個推進浪<strong>一段明顯距離</strong>。<strong>太短</strong>會是假突破，做不成突破回測 / 回調，進場點不成立。</p>
+          <div class="condition-check">⚠ 太短 → 假突破 → 無回測可做</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">📏</div>
+          <h3>突破距離不能太長</h3>
+          <p><strong>太長</strong>：趨勢有較高機率終結。高位買入者帳面出現虧損，假突破反彈後他們會傾向止賺 / 止蝕離場——拋壓會壓垮趨勢。</p>
+          <div class="condition-check">⚠ 太長 → 趨勢終結 → 高位套牢盤拋售</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">⚡</div>
+          <h3>假突破幅度與動能</h3>
+          <p>假突破的幅度<strong>不能太多</strong>，Momentum <strong>不能太強</strong>。幅度太大可能是<strong>真突破</strong>（向下），風險增大。</p>
+          <div class="condition-check">⚠ 幅度大 + 動能強 → 可能係真突破 → 放棄</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="case" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">實戰案例：MRNA（Moderna）</h2>
+      <p class="section-lead">2026 年 6–8 月真實數據，展示「前推進浪頂 → 回調 → 突破 → 目標」的完整結構。</p>
+
+      <div class="cases-grid">
+        <article class="case-card">
+          <div class="case-header">
+            <h3>Moderna</h3>
+            <span class="ticker">MRNA</span>
+          </div>
+          <div class="case-chart">
+            <img src="../images/mrna-trend-continuation.png" alt="MRNA 順勢交易案例圖表" loading="lazy" />
+          </div>
+          <p><strong>推進浪 ①</strong>：6/26 起 $59.23 → 7/6 前推進浪頂 <strong>$85.60</strong>（+45%）。<strong>回調</strong>：7/7 起回落至 8/3 低位 <strong>$52.66</strong>（−38%，深度回調）。<strong>推進浪 ②</strong>：8 月中重新上升，8/19 爆升突破前頂 $85.60 至 $176.7。</p>
+          <div class="case-tags"><span>前頂支持</span><span>突破回測</span><span>1.618 延伸</span></div>
+        </article>
+      </div>
+
+      <div class="conditions-grid" style="margin-top:32px;">
+        <article class="condition-card">
+          <div class="condition-num">🟣</div>
+          <h3>前推進浪頂 $85.60</h3>
+          <p>7/6 高位成為關鍵<strong>支持位</strong>（紫色虛線）。價格升穿後，此位由阻力轉為支持，回測即為進場點；同時是<strong>止盈 #1</strong>。</p>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">🔴</div>
+          <h3>回調低點 $52.66</h3>
+          <p>8/3 低位為<strong>回調極值</strong>（紅色虛線）。假突破底部 → 止損位設於其下方。MRNA 此浪回調深（−38%），屬較高風險案例。</p>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">🟢</div>
+          <h3>回調浪 1.618 ≈ $95.3</h3>
+          <p>由回調低點延伸的<strong>1.618 目標</strong>（綠色虛線）：$52.66 + ($85.60 − $59.23) × 1.618 ≈ <strong>$95.33</strong>。突破前頂後的首個主要目標。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary" class="section">
+    <div class="container">
+      <h2 class="section-title">順勢交易總結</h2>
+      <p class="section-lead">一句話記住：<strong>前頂突破後回測，返回之上買入；止損放假突破底，止盈看前高與 1.618。</strong></p>
+
+      <div class="rules-grid">
+        <div class="rule">
+          <span class="rule-num">①</span>
+          <p><strong>確認趨勢</strong> — 趨勢未過度延伸（第二個推進浪明顯突破第一個推進浪，幅度適中）。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">②</span>
+          <p><strong>找前頂</strong> — 以前推進浪頂為支持位，等待價格升穿後急速返回。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">③</span>
+          <p><strong>進場</strong> — 價格返回前頂之上即買入；下跌趨勢相反（前底之下賣出）。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">④</span>
+          <p><strong>止損</strong> — 假突破底部下方；止盈前推進浪頂（#1）與回調浪 1.618（#2）。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">⚠</span>
+          <p><strong>過濾</strong> — 突破太短（假突破）、太長（趨勢終結）、幅度大動能強（真突破）皆放棄。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Homework Project · 順勢交易 Trend Continuation Trading</p>
+      <p class="footer-sub">圖表數據：MRNA 真實日線（yfinance）· 策略筆記原圖</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
