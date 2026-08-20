@@ -21,6 +21,7 @@
       <li><a href="#entry">進出場規則</a></li>
       <li><a href="#attention">注意重點</a></li>
       <li><a href="#case">MRNA 案例</a></li>
+      <li><a href="#scan">美股掃描</a></li>
       <li><a href="#summary">總結</a></li>
     </ul>
   </nav>
@@ -210,6 +211,52 @@
           <p>由回調低點延伸的<strong>1.618 目標</strong>（綠色虛線）：$52.66 + ($85.60 − $59.23) × 1.618 ≈ <strong>$95.33</strong>。突破前頂後的首個主要目標。</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="scan" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">自動化掃描（美股候選）</h2>
+      <p class="section-lead">用「順勢交易」框架掃描 70 隻熱門美股（2026-08-20）：突破前頂後回測支持位嘅候選。</p>
+
+      <div class="cases-grid">
+        <article class="case-card">
+          <div class="case-header">
+            <h3>Cloudflare</h3>
+            <span class="ticker">NET · 1D · 2026-06 → 08</span>
+          </div>
+          <div class="case-chart">
+            <img src="../images/net-trend-continuation.png" alt="NET 順勢交易候選圖表" loading="lazy" />
+          </div>
+          <p><strong>結構</strong>：上升趨勢 → 8/7 突破前頂 $291 至 $324.73 → 急速回測 $285.72（8/19）→ 正於前頂 $291 附近測試支持。<strong>買入區</strong>：$291 之上（急速返回），<strong>止損</strong>：$265（假突破底部），<strong>目標</strong>：$331（1.618 延伸）。</p>
+          <div class="case-tags"><span>突破回測中</span><span>前頂 $291</span><span>SL $265</span><span>目標 $331</span></div>
+        </article>
+      </div>
+
+      <h2 class="subsection-title">2026-08-20 掃描結果（10 隻候選）</h2>
+      <div class="tool-code"><pre>ticker  現價        前頂        回測低點    距前頂    突破     前頂喺
+CRWD    $201.63    $217.50    $177.75    -7.3%    +5%     25日前
+AMZN    $265.84    $278.56    $231.06    -4.6%    +3%     73日前
+PANW    $359.76    $368.80    $313.05    -2.5%    +8%     23日前
+MSFT    $484.31    $491.31    $432.44    -1.4%    +5%     178日前
+NET     $291.88    $291.00    $265.00    +0.3%    +14%    25日前
+BAC     $63.17     $62.99     $61.03     +0.3%    +4%     17日前
+LLY     $1280.34   $1247.66   $1107.56   +2.6%    +4%     31日前
+REGN    $840.84    $817.95    $694.17    +2.8%    +3%     152日前
+AMGN    $442.36    $398.00    $375.96    +11.1%   +11%    16日前
+SNOW    $325.01    $284.99    $283.00    +14.0%   +20%    55日前</pre></div>
+
+      <div class="tool-links">
+        📂 掃描程式：<a href="https://github.com/zero850x-ctrl/homework/blob/master/順勢交易/scripts/scan_trend_continuation.py" target="_blank" rel="noopener">scan_trend_continuation.py</a>（<a href="https://raw.githubusercontent.com/zero850x-ctrl/homework/master/順勢交易/scripts/scan_trend_continuation.py" target="_blank" rel="noopener">下載原始檔</a>）
+      </div>
+
+      <p class="tool-note">
+        🚀 使用步驟：<code>git clone https://github.com/zero850x-ctrl/homework.git</code> → <code>pip install yfinance</code> → <code>python3 順勢交易/scripts/scan_trend_continuation.py</code>
+      </p>
+
+      <p class="tool-note">
+        📡 掃描條件對應筆記：① 上升結構（低點抬升）② 突破前頂 5-40%（太短/太長都剔除）③ 現價回測至前頂 ±4% ④ 回測低點跌破前頂（假突破底部）但現價已反彈 ⑤ 突破放量（&gt;1.2x 均量）。候選需在 TradingView 人手確認圖表結構先可作實。
+      </p>
     </div>
   </section>
 
