@@ -111,6 +111,10 @@ def compression_score(df):
     H, L, C, V = h[-120:], l[-120:], c[-120:], v[-120:]
     R = float(np.max(H))                          # 120d high = recent resistance
     prox_ath = C[-1] / ATH                        # proximity to TRUE ATH
+    # ── 崩盤股偵測 (2026-08-25): ATH 高現價 3 倍+ = 唔係 992 壓縮,
+    # 係崩盤後反彈 (例 8239: 2007 見 $792, 現 $21)。prox gate 會過濾,
+    # 但要明確標示原因, 唔好同「數據缺口」混淆。
+    crash_flag = ATH > C[-1] * 3
     prox120 = C[-1] / R
     touches = int(np.sum(H[-25:] >= 0.985 * R))   # touches of resistance zone
     hl = bool(L[-10:].min() > L[-20:-10].min())   # higher lows
@@ -119,6 +123,32 @@ def compression_score(df):
     comp = rng(slice(-5, None)) / max(rng(slice(-15, -5)), 1e-9)   # range compression
     vc = float(np.mean(V[-5:])) / max(float(np.mean(V[-15:-5])), 1e-9)  # volume contraction
     nearhi = C[-1] >= 0.97 * R
+
+    # ── Fib 0.236 gate (筆記四大條件②, 2026-08-25 對齊 homework page) ──
+    # anchor = 120 日 impulse 起點低位；收盤必須企穩喺 0.236 回撤之上，
+    # 跌破 = 信號失效（參考: 中電 0002 97.35 見頂後連破 0.236/0.382/0.618）
+    anchor = float(np.min(L))
+    fib236 = R - 0.236 * (R - anchor)
+    fib_ok = bool(C[-1] > fib236)
+
+    # ── 四大條件 (筆記: 缺一不可) ──
+    # ①歷史高位 prox_ath>=0.90 ②EQH touches>=2 ③收窄 comp<0.85 ④量縮 vc<0.9
+    big4 = bool(prox_ath >= 0.90 and touches >= 2 and comp < 0.85 and vc < 0.9)
+
+    # ── trade management 參考價 (筆記紀律 02/03) ──
+    buildup_low = float(np.min(L[-40:]))          # build-up 最低位
+    buildup_h = R - buildup_low
+    sl_ref = round(buildup_low, 2)                # 止損: build-up 底下方
+    tp1_ref = round(R + 1.5 * buildup_h, 2) if buildup_h > 0 else None   # TP1 = build-up 1.5 倍
+    tp2_ref = round(ATH + 0.618 * (ATH - anchor), 2) if ATH > anchor else None  # TP2 = 趨勢 61.8% 延伸
+
+    # ── 失敗模式 flags (筆記失敗例子) ──
+    flags = []
+    if comp > 1.0:
+        flags.append("range_expanding")           # 波幅擴緊 = 冇蓄勢
+    if len(C) > 1 and V[-1] > 1.5 * max(float(np.mean(V[-15:-5])), 1e-9) and C[-1] < C[-2]:
+        flags.append("red_volume_spike")          # 放量大陰線 = 派發疑雲
+
     s = 0
     if prox_ath >= 0.90: s += 1
     if touches >= 2: s += 1
@@ -129,7 +159,11 @@ def compression_score(df):
     return {"prox_ath": round(prox_ath, 4), "prox120": round(prox120, 4),
             "touches": touches, "hl": hl, "comp": round(comp, 2),
             "vc": round(vc, 2), "score": s, "ATH": round(ATH, 2),
-            "R": round(R, 2), "close": round(float(C[-1]), 2)}
+            "R": round(R, 2), "close": round(float(C[-1]), 2),
+            "fib236": round(fib236, 2), "fib_ok": fib_ok, "big4": big4,
+            "SL": sl_ref, "TP1": tp1_ref, "TP2": tp2_ref,
+            "crash": crash_flag,
+            "flags": ",".join(flags) if flags else ""}
 
 
 def fetch_hist(market: str, ticker: str):
@@ -184,6 +218,14 @@ def main():
                 skipped.append((ticker, d["description"], "no data (gap)"))
                 continue
             s = compression_score(df)
+            # 崩盤股過濾 (筆記②: 歷史高位 = 強勢動能, 崩盤反彈唔算)
+            if s and s.get("crash"):
+                skipped.append((ticker, d["description"], "post-crash rebound (ATH > 3x, not 992 pattern)"))
+                continue
+            # Fib 0.236 gate (筆記: 跌破 0.236 = 信號失效) — 先決條件
+            if s and not s["fib_ok"]:
+                skipped.append((ticker, d["description"], "below Fib 0.236 (signal invalid)"))
+                continue
             # require true-ATH proximity; report score >= 4
             if s and s["prox_ath"] >= 0.85 and s["score"] >= 4:
                 results.append((s["score"], ticker, d["description"], s))
@@ -191,12 +233,16 @@ def main():
             skipped.append((ticker, d["description"], str(e)[:40]))
         time.sleep(0.15)   # rate-limit throttle
 
-    results.sort(key=lambda r: r[0], reverse=True)
-    print(f"=== ATH-based score>=4: {len(results)} ===", flush=True)
+    results.sort(key=lambda r: (not r[3].get("big4", False), -r[0]))  # big4 先, 再 by score
+    print(f"=== ATH-based score>=4: {len(results)} (A=四大條件齊 ★) ===", flush=True)
     for sc, t, desc, s in results:
-        print(f"{sc} {t:6s} {desc[:34]:34s} close={s['close']:9.2f} ATH={s['ATH']:9.2f} "
-              f"proxATH={s['prox_ath']} prox120={s['prox120']} touches={s['touches']} "
-              f"hl={s['hl']} comp={s['comp']} vc={s['vc']}", flush=True)
+        star = "★" if s.get("big4") else " "
+        flag = f" ⚠️{s['flags']}" if s.get("flags") else ""
+        tp1 = f" TP1={s['TP1']}" if s.get("TP1") else ""
+        tp2 = f" TP2={s['TP2']}" if s.get("TP2") else ""
+        print(f"{star}{sc} {t:6s} {desc[:30]:30s} close={s['close']:9.2f} ATH={s['ATH']:9.2f} "
+              f"proxATH={s['prox_ath']} touches={s['touches']} comp={s['comp']} vc={s['vc']}"
+              f" SL={s['SL']}{tp1}{tp2}{flag}", flush=True)
 
     # data-gap warning (HK: tvdatafeed+yfinance both can miss names)
     if skipped:
