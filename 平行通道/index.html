@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>平行通道 | Parallel Channel</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">📏</span>
+      <span>平行通道</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#strategy">策略描述</a></li>
+      <li><a href="#draw">通道畫法</a></li>
+      <li><a href="#termination">突破＝終結</a></li>
+      <li><a href="#outcomes">三種結局</a></li>
+      <li><a href="#entry">進出場規則</a></li>
+      <li><a href="#attention">注意重點</a></li>
+      <li><a href="#cases">案例</a></li>
+      <li><a href="#scan">掃描器</a></li>
+      <li><a href="#summary">總結</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-tag">Parallel Channel · 平行通道</p>
+      <h1>突破或跌破平行通道<br /><span class="gradient-text">代表呢一段趨勢已經終結</span></h1>
+      <p class="hero-desc">
+        平行通道係「一段有序趨勢」嘅容器。價格<strong>突破上軌</strong>或<strong>跌破下軌</strong>，即係離開咗原本嘅秩序 —
+        <strong>原本嗰段趨勢結束</strong>。但結束唔等於反轉，之後可以<strong>上升、橫行、下跌</strong>三種走法，
+        所以突破方向只係「問題的開始」，唔係答案。
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">2</span>
+          <span class="stat-label">兩條平行軌道</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">⛔</span>
+          <span class="stat-label">離開通道＝趨勢終結</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">③</span>
+          <span class="stat-label">之後三種結局</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">≥80%</span>
+          <span class="stat-label">通道內包覆率</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="strategy" class="section">
+    <div class="container">
+      <h2 class="section-title">策略描述</h2>
+      <p class="section-lead">
+        平行通道 = 兩個或以上嘅高點 + 兩個或以上嘅低點，各自連成一條直線，而兩條線<strong>互相平行</strong>。
+        價格大部分時間在兩線之間來回，形成一個有節奏嘅上升 / 下降 / 橫行結構。
+      </p>
+
+      <div class="conditions-grid">
+        <article class="condition-card">
+          <div class="condition-num">01</div>
+          <h3>上升通道</h3>
+          <p>高點越抬越高（Higher High）+ 低點越抬越高（Higher Low），兩條<strong>向上平行</strong>嘅軌道。<br />上升通道代表「有序嘅上升趨勢」。</p>
+          <div class="condition-check">✓ 斜率向上、兩軌平行、價格在內來回</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">02</div>
+          <h3>下降通道</h3>
+          <p>高點越降越低（Lower High）+ 低點越降越低（Lower Low），兩條<strong>向下平行</strong>嘅軌道。<br />下降通道代表「有序嘅下跌趨勢」。</p>
+          <div class="condition-check">✓ 斜率向下、兩軌平行、反彈頂住上軌</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">03</div>
+          <h3>橫行通道（箱體）</h3>
+          <p>高點在同一水平、低點在同一水平，斜率接近 <strong>0</strong>。<br />本質係「無方向嘅區間」，向上突破 = 區間結束，向下突破一樣係結束。</p>
+          <div class="condition-check">✓ 斜率 ≈ 0（掃描器：絕對值 &lt; 0.05%／棒）</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="draw" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">通道畫法（固定規則，唔靠感覺）</h2>
+      <p class="section-lead">
+        通道最易犯嘅錯係「事後畫到靚」。所以要用固定規則：<strong>擺動點（pivot）→ 回歸擬合 → 檢查平行與包覆</strong>，
+        掃描器同人手畫線都用同一套標準。
+      </p>
+
+      <div class="conditions-grid">
+        <article class="condition-card">
+          <div class="condition-num">01</div>
+          <h3>至少 2 個高 + 2 個低</h3>
+          <p>每條軌最少要有 <strong>2 個觸點</strong>，3 個以上更可靠；觸點越多、越平均分佈，通道越有效。</p>
+          <div class="condition-check">✓ 掃描器預設：每軌 ≥2 觸點，實測多數案例 7–12 個</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">02</div>
+          <h3>兩軌必須平行</h3>
+          <p>上下軌斜率要接近一致；斜率差距太大就係「擴散三角形」或「楔形」，唔係平行通道。價格亦要<strong>大部分時間在通道內</strong>。</p>
+          <div class="condition-check">✓ 包覆率 ≥80%、寬度 ≥1.5 ATR（太窄冇交易價值）</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">03</div>
+          <h3>長期用對數尺度</h3>
+          <p>跨幾年嘅通道要用 <strong>log scale</strong> 畫，否則價格翻倍／腰斬會令斜率失真；日線級別（3–12 個月）用 linear 即可。</p>
+          <div class="condition-check">✓ 長期 log、短期 linear</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="termination" class="section">
+    <div class="container">
+      <h2 class="section-title">核心：突破／跌破平行通道＝該段趨勢終結</h2>
+      <p class="section-lead">
+        通道係「趨勢嘅容器」。價格<strong>持續離開容器</strong>，代表原本維持秩序嘅買／賣盤已經失衡 —
+        呢一段趨勢正式完結。呢個判斷同「方向」無關：<strong>向上突破係終結，向下跌破一樣係終結。</strong>
+      </p>
+
+      <div class="smc-grid">
+        <div class="smc-item">
+          <span class="smc-badge">✅ 會發生嘅事</span>
+          <h3>節奏改變</h3>
+          <p>原本「沿軌道來回」嘅節奏消失：回調唔再在下軌止住、推進唔再在上軌受阻。波幅、斜率、時間週期都會變。</p>
+        </div>
+        <div class="smc-item zone">
+          <span class="smc-badge">⛔ 唔代表嘅事</span>
+          <h3>方向反轉</h3>
+          <p>上升通道跌破，<strong>唔等於</strong>一定跌；向上突破，<strong>唔等於</strong>一定繼續升。通道終結只講「舊秩序結束」，新方向要重新確認。</p>
+        </div>
+        <div class="smc-item">
+          <span class="smc-badge">📐 實務含意</span>
+          <h3>唔好在軌邊盲追</h3>
+          <p>第一根穿軌嘅燭，經常係假突破（throw-over）。未經回測確認之前，通道邊界嘅「突破」優先當成<strong>風險事件</strong>，唔係入場信號。</p>
+        </div>
+      </div>
+
+      <p class="tool-note">
+        📌 一句記住：<strong>通道內＝有秩序；通道外＝無秩序。</strong> 由有秩序變無秩序，就係「趨勢終結」；
+        之後要行到「新秩序」先有下一個方向。
+      </p>
+    </div>
+  </section>
+
+  <section id="outcomes" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">突破／跌破之後：三種結局</h2>
+      <p class="section-lead">
+        同一件事（通道終結）之後，價格只會出現三種結局：<strong>上升、橫行、下跌</strong>。
+        重點係三種都要有預案，唔可以事先鎖死一個方向。
+      </p>
+
+      <div class="conditions-grid">
+        <article class="condition-card">
+          <div class="condition-num">A</div>
+          <h3>上升（順突破方向延伸）</h3>
+          <p>突破後<strong>回測舊軌、成功翻上去</strong>（舊上軌變成支持），並形成新嘅更高高點／更高低點 → 新上升結構成立。</p>
+          <div class="condition-check">✓ 處理：回測舊軌不破才追多；止損放回測低點</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">B</div>
+          <h3>橫行（進入新區間）</h3>
+          <p>突破後<strong>無力延伸</strong>，價格在舊軌附近來回築出一個新箱體：淨移動細（&lt; 1.5 ATR）、波幅收窄 → 變成新嘅橫行通道。</p>
+          <div class="condition-check">✓ 處理：唔追突破；等新箱體成形，改做區間低買高賣</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">C</div>
+          <h3>下跌（反向）</h3>
+          <p>突破後<strong>快速失敗</strong>並跌回通道內／跌穿另一邊 → 假突破成立，反而係最強嘅反向信號（throw-over failure）。</p>
+          <div class="condition-check">✓ 處理：跌回軌內即止損；反向結構確認後才做空</div>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">判定流程（按次序檢查）</h3>
+      <div class="rules-grid">
+        <div class="rule">
+          <span class="rule-num">①</span>
+          <p><strong>突破質量</strong> — 係「收盤價」站穩軌外，定只係影線刺穿？有無放量（&gt;1.2× 均量）？</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">②</span>
+          <p><strong>回測結果</strong> — 價格返到舊軌時，係<strong>翻上去</strong>（成功）定<strong>跌返入去</strong>（失敗）？呢一步最關鍵。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">③</span>
+          <p><strong>結構確認</strong> — 有無 BOS（延續）或 CHoCH（反轉）？未出現結構前，一律當「方向未定」。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">④</span>
+          <p><strong>新秩序</strong> — 有無形成新通道／新箱體？舊通道已死，新通道未立之前唔好落大注。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">⚠</span>
+          <p><strong>時間因素</strong> — 通道運行得越久（觸點越多），終結後嘅波動通常越大；短命通道嘅突破參考價值較低。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="entry" class="section">
+    <div class="container">
+      <h2 class="section-title">進出場規則</h2>
+      <p class="section-lead">兩種做法：<strong>通道內做區間</strong>，同<strong>通道終結後做確認</strong>。兩者風險性質完全唔同。</p>
+
+      <div class="smc-grid">
+        <div class="smc-item">
+          <span class="smc-badge">📥 做法一：通道內</span>
+          <h3>下軌買、上軌減</h3>
+          <p>通道仍然有效時，貼近<strong>下軌</strong>買入（上升／橫行通道），貼近<strong>上軌</strong>減倉；止損放在通道外側一小段（0.5 ATR 左右）。</p>
+        </div>
+        <div class="smc-item">
+          <span class="smc-badge">📥 做法二：終結後</span>
+          <h3>回測舊軌確認才入</h3>
+          <p>突破後<strong>唔追第一根燭</strong>。等價格回測舊軌：翻上去／跌返落去嘅結果，才決定方向。呢個就係「舊軌 flip 成支持／阻力」。</p>
+        </div>
+        <div class="smc-item zone">
+          <span class="smc-badge">🛑 止損</span>
+          <h3>通道內側 + 突破前 pivot</h3>
+          <p>區間交易：止損在通道外 0.5 ATR。<br />終結後交易：止損放在<strong>突破前最後一個 pivot</strong>之外，或回測形成嘅極值之外。</p>
+        </div>
+        <div class="smc-item zone">
+          <span class="smc-badge">🎯 目標</span>
+          <h3>通道寬度投射（measured move）</h3>
+          <p>常用目標 = 突破點 ± <strong>一個通道寬度</strong>。但通道終結後有三種結局，目標只作<strong>參考</strong>；到第一目標先減一半，剩下用結構（BOS）跟。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="attention" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">注意重點</h2>
+      <p class="section-lead">通道交易死得最惨嘅幾個位，全部同「假設方向」有關。</p>
+
+      <div class="conditions-grid">
+        <article class="condition-card">
+          <div class="condition-num">⚠️</div>
+          <h3>假突破 / Throw-over</h3>
+          <p>影線刺穿軌道、收盤即刻返回通道內 — 呢個<strong>唔係趨勢終結</strong>，反而係通道內最強嘅反向信號（上軌 throw-over = 沽、下軌 throw-over = 買）。</p>
+          <div class="condition-check">✓ 用「收盤價 + 0.5 ATR」過濾影線假突破</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">📈</div>
+          <h3>通道加速（斜率改變）</h3>
+          <p>價格突然沿着更斜嘅軌道急升／急跌（parabolic 尾段）— 舊通道已經失效。呢個時候追入，通常買／沽在最差嘅位置。</p>
+          <div class="condition-check">⚠ 斜率明顯變斜 → 重新畫通道 → 舊線唔再用</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">🖐</div>
+          <h3>畫線主觀性</h3>
+          <p>同一段走勢可以畫到三條唔同通道。所以要用<strong>固定規則</strong>（pivot + 回歸 + 包覆率）先畫，再用 TradingView 人手複核，避免「事後完美」。 </p>
+          <div class="condition-check">✓ 掃描器出候選，人手確認結構</div>
+        </article>
+        <article class="condition-card">
+          <div class="condition-num">🕐</div>
+          <h3>時間級別唔同結論</h3>
+          <p>日線通道跌破，可能只係週線通道嘅一次回調。落注前要講清楚自己做邊個級別，止損亦要對應嗰個級別。</p>
+          <div class="condition-check">✓ 日線入場、週線定方向</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">實戰案例：三種結局各一</h2>
+      <p class="section-lead">
+        以下三張圖全部真實日線（yfinance），通道用<strong>前段數據</strong>以 pivot 回歸擬合，之後睇價格離開通道後實際走去邊 —
+        刻意揀三個唔同結局，證明「突破方向 ≠ 之後方向」。
+      </p>
+
+      <div class="cases-grid" style="grid-template-columns:1fr;">
+        <article class="case-card">
+          <div class="case-header">
+            <h3>波音 BA · 上升通道突破上軌 → 之後下跌</h3>
+            <span class="ticker">BA · 1D · NYSE</span>
+          </div>
+          <div class="case-chart">
+            <img src="../images/channel/ba-channel-breakout-down.png" alt="BA 上升通道突破上軌後下跌" loading="lazy" />
+          </div>
+          <p><strong>上升通道</strong>（上軌 7 個觸點、下軌 8 個觸點）→ <strong>向上突破上軌</strong>（2025-07-09）→ 短暫衝高後<strong>跌返入通道並跌穿下軌</strong>，之後持續向下，突破後淨動 <strong>−8.3 ATR</strong>。<strong>重點</strong>：向上突破只代表上升通道終結，結果係「下跌」。</p>
+          <div class="case-tags"><span>上升通道</span><span>向上突破</span><span>結果下跌</span><span>−8.3 ATR</span></div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-header">
+            <h3>可口可樂 KO · 上升通道跌破下軌 → 之後上升</h3>
+            <span class="ticker">KO · 1D · NYSE</span>
+          </div>
+          <div class="case-chart">
+            <img src="../images/channel/ko-channel-breakdown-up.png" alt="KO 上升通道跌破下軌後上升" loading="lazy" />
+          </div>
+          <p><strong>上升通道</strong> → <strong>向下跌破下軌</strong>（2025-07-08）→ 破位後只係短暫走弱，隨即<strong>拗返上去</strong>並展開新一輪上升，突破後淨動 <strong>+15.6 ATR</strong>。<strong>重點</strong>：向下跌破只代表上升通道終結，結果係「上升」— 跌穿軌道唔等於要跌。</p>
+          <div class="case-tags"><span>上升通道</span><span>向下跌破</span><span>結果上升</span><span>+15.6 ATR</span></div>
+        </article>
+
+        <article class="case-card">
+          <div class="case-header">
+            <h3>銀河娛樂 0027 · 下降通道突破上軌 → 之後橫行</h3>
+            <span class="ticker">0027.HK · 1D · HKEX</span>
+          </div>
+          <div class="case-chart">
+            <img src="../images/channel/0027-hk-channel-break-flat.png" alt="0027 下降通道突破上軌後橫行" loading="lazy" />
+          </div>
+          <p><strong>下降通道</strong> → <strong>向上突破上軌</strong>（2025-05-27）→ 破位後<strong>無力延伸</strong>，價格在舊軌一帶來回，最終形成新嘅區間，突破後淨動 <strong>+0.0 ATR</strong>（幾乎原地）。<strong>重點</strong>：突破只代表下降趨勢終結，之後可以行「橫行」— 唔升唔跌。</p>
+          <div class="case-tags"><span>下降通道</span><span>向上突破</span><span>結果橫行</span><span>+0.0 ATR</span></div>
+        </article>
+      </div>
+
+      <p class="tool-note">
+        📊 三個案例合起來嘅結論：<strong>同一件事（通道終結）→ 三種完全唔同嘅結果。</strong>
+        所以交易計劃必須包含三種分支，而唔係「突破就追」。
+      </p>
+    </div>
+  </section>
+
+  <section id="scan" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title">自動化掃描（港股 + 美股）</h2>
+      <p class="section-lead">
+        <code>scan_channel.py</code> 用同一套規則（pivot → 回歸 → 平行 + 包覆率）掃出<strong>正在成型</strong>同<strong>剛終結</strong>嘅通道，
+        並判斷突破後嘅結局。
+      </p>
+
+      <h3 class="subsection-title">2026-10-21 掃描結果（33 隻，24 個通道成型）</h3>
+      <div class="tool-code"><pre>代號        類型      狀態            斜率%/棒    包覆  寬/ATR  觸點      突破日         結局
+------------------------------------------------------------------------------------------------------------
+XOM       橫行通道    突破上軌          0.029  0.82    4.5  9H/9L   2026-10-08  上升 (順突破方向) (+9.36)
+0005.HK   上升通道    跌破下軌          0.133  0.83    3.6  9H/10L  2026-10-02  下跌 (反向) (-3.7)
+0941.HK   橫行通道    跌破下軌          0.006  0.84    6.1  9H/8L   2026-10-21  突破太新
+PG        橫行通道    突破上軌         -0.048  0.84    4.1  9H/10L  2026-10-06  上升 (順突破方向) (+10.91)
+BA        下降通道    跌破下軌         -0.058  0.86    6.5  8H/8L   2026-10-20  突破太新
+0700.HK   下降通道    跌破下軌         -0.162  0.89    5.6  9H/8L   2026-10-21  突破太新
+0066.HK   下降通道    突破上軌         -0.051  0.91    4.8  12H/8L  2026-10-16  突破太新
+
+通道內（等突破）:
+2318.HK / 9988.HK / 1378.HK / 0016.HK / TSLA / 0883.HK / 3690.HK / 1810.HK / 0960.HK / 1299.HK  → 下降通道
+AMZN / GOOGL / KO / NVDA / AAPL                                                          → 上升通道
+0823.HK / 0388.HK                                                                        → 橫行通道</pre></div>
+
+      <div class="tool-links">
+        📂 掃描程式：<a href="https://github.com/zero850x-ctrl/homework/blob/master/平行通道/scripts/scan_channel.py" target="_blank" rel="noopener">scan_channel.py</a>（<a href="https://raw.githubusercontent.com/zero850x-ctrl/homework/master/平行通道/scripts/scan_channel.py" target="_blank" rel="noopener">下載原始檔</a>）
+        ｜ 出圖程式：<a href="https://github.com/zero850x-ctrl/homework/blob/master/平行通道/scripts/make_charts.py" target="_blank" rel="noopener">make_charts.py</a>
+      </div>
+
+      <p class="tool-note">
+        🚀 使用步驟：<code>git clone https://github.com/zero850x-ctrl/homework.git</code> → <code>pip install yfinance numpy</code> →
+        <code>python3 平行通道/scripts/scan_channel.py</code>（可加代號：<code>python3 平行通道/scripts/scan_channel.py 0700.HK AAPL</code>）
+      </p>
+
+      <p class="tool-note">
+        📡 掃描條件：① 擺動點左右各 6 根確認 ② 上軌＝pivot high 回歸、下軌＝pivot low 回歸 ③ 兩軌平行（斜率差 ≤35%）
+        ④ 通道包覆率 ≥80%、寬度 1.5–12 ATR ⑤ 收盤超出軌外 0.5 ATR 才算突破／跌破 ⑥ 突破後 20 根棒判結局（淨動 &lt;2 ATR＝橫行）。
+        候選必須在 TradingView 人手確認圖表結構先可作實。
+      </p>
+    </div>
+  </section>
+
+  <section id="summary" class="section">
+    <div class="container">
+      <h2 class="section-title">平行通道總結</h2>
+      <p class="section-lead">
+        一句話記住：<strong>通道內有秩序；突破或跌破 = 呢一段趨勢終結；之後可以上升、橫行、下跌 — 三種都要有預案。</strong>
+      </p>
+
+      <div class="rules-grid">
+        <div class="rule">
+          <span class="rule-num">①</span>
+          <p><strong>畫得實</strong> — pivot 回歸畫線，兩軌平行、包覆率 ≥80%，唔好靠感覺。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">②</span>
+          <p><strong>通道內</strong> — 下軌買、上軌減，止損通道外 0.5 ATR。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">③</span>
+          <p><strong>終結</strong> — 收盤站穩軌外 0.5 ATR = 該段趨勢終結（向上向下都係）。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">④</span>
+          <p><strong>三種結局</strong> — 上升／橫行／下跌；用「回測舊軌 + BOS/CHoCH」確認，未確認前唔追。</p>
+        </div>
+        <div class="rule">
+          <span class="rule-num">⚠</span>
+          <p><strong>最大陷阱</strong> — 假突破（throw-over）同通道加速；兩者都會令「突破」變成最差嘅入場位。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Homework Project · 平行通道 Parallel Channel</p>
+      <p class="footer-sub">圖表數據：yfinance 真實日線（BA / KO / 0027.HK）· 通道以 pivot 回歸擬合</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+</body>
+</html>
