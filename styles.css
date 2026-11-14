@@ -662,3 +662,19 @@ body {
   .cases-grid { grid-template-columns: 1fr; }
   .section { padding: 72px 0; }
 }
+
+/* Case remark / reservation note (added 2026-11-14) */
+.case-remark {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 3px solid #f59e0b;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.08);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.case-remark strong {
+  color: #fbbf24;
+  font-weight: 600;
+}
